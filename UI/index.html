@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="search-section glass-panel">
+            <h1><i class="fa-solid fa-cloud-sun-rain"></i> Weather Forecast</h1>
+            <form id="weather-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <input type="number" id="days-input" placeholder="Forecast days (e.g. 3)" min="1" max="14" required>
+                </div>
+                <button type="submit" class="btn-primary">Get Forecast <i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div id="error-message" class="error-message hidden"></div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <div id="weather-result" class="weather-result hidden">
+            <div class="current-weather glass-panel">
+                <div class="location-info">
+                    <h2 id="location-name">City, Country</h2>
+                    <p id="weather-condition">Condition</p>
+                </div>
+                <div class="temp-display">
+                    <span id="current-temp" class="temperature">--</span><span class="unit">°C</span>
+                </div>
+            </div>
+
+            <h3 class="forecast-title">Forecast</h3>
+            <div class="forecast-container" id="forecast-container">
+                <!-- Forecast cards will be injected here via JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
